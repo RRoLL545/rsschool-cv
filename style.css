@@ -55,7 +55,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-h3 {
+h2 {
     font-size: 1.4em;
     font-weight: bold;
     line-height: 140%;
@@ -150,6 +150,19 @@ body {
     align-items: center;
 }
 
+.nav-container {
+  position: relative;
+  height: 40px;
+}
+
+.navigation-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
 .hrefs:link {
     text-decoration: none;
     color: #000000;
@@ -168,11 +181,25 @@ body {
     color: #f174d4;
 }
 
-/*----------------------------*/
+.burger-icon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  display: none;
+  background: no-repeat center / contain url(./img/burger-menu.png);
+}
+
+.burger-icon.burger-icon-close {
+  background-image: url(./img/menu-close.png);
+}
+
 .content-main {
     flex: 0 0 310px; /*flex-grow, flex-shrink и flex-basis*/
     padding: 0 20px;
 }
+
 .content-aside {
     flex: 1 0 320px;
     background-color: #f1d1e9;
@@ -234,41 +261,68 @@ body {
 
 
 @media (max-width: 800px) {
-    .wrapper-global {
-        font-size: 90%;
-        margin: 0 auto;
-    }
-    .header {
-        order: 1;
-        flex: 1 0 100px;
-        margin: 0 20px 10px 10px;
-    }
+  .navigation-list {
+    display: none;
+  }
 
-    .navigation-list {
-        display: none;
-    }
+  .burger-icon {
+    display: inline;
+    z-index: 101;
+  }
 
-    .content-main {
-        order: 0;
-        flex: 0 0 230px;
-        padding-right: 0;
-        margin-top: 50px;
-    }
+  ul.burger-menu-open {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 180px;
+    margin-top: 0;
+    text-align: left;
+    background-color: #f1d1e9;
+    z-index: 100;
+    padding: 10px;
+    border-radius: 10px;
+  }
 
-    .main-h4--list {
-        padding-inline-start: 20px;
-    }
-    
-    .aside-h4--list {
-        padding-inline-start: 20px;
-    }
-    .content-aside {
-        order: 2;
-    }
+  .navigation-list_item {
+    margin: 3px 0;
+  }
 
-    .footer {
-        order: 3;
-    }
+  .wrapper-global {
+    font-size: 90%;
+    margin: 0 auto;
+  }
+  .header {
+    order: 1;
+    flex: 1 0 100px;
+    margin: 0 20px 10px 10px;
+  }
+
+  .navigation-list {
+    display: none;
+  }
+
+  .content-main {
+    order: 0;
+    flex: 0 0 230px;
+    padding-right: 0;
+    margin-top: 50px;
+  }
+
+  .main-h4--list {
+    padding-inline-start: 20px;
+  }
+  
+  .aside-h4--list {
+    padding-inline-start: 20px;
+  }
+  .content-aside {
+    order: 2;
+  }
+
+  .footer {
+    order: 3;
+  }
 }
 
 @media (max-width: 610px) {
